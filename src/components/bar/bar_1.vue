@@ -1,34 +1,29 @@
 <template>
-  <div :id="id">
-
-  </div>
+  <!-- 步骤2：准备一个呈现图表的盒子 -->
+  <div :id="id"></div>
 </template>
 
 <script>
-  import * as echarts from 'echarts/core';
-  import {LegendComponent} from 'echarts/components';
-  import {TitleComponent} from 'echarts/components'
-  import {GridComponent} from 'echarts/components';
-  import {BarChart} from 'echarts/charts';
-  import {CanvasRenderer} from 'echarts/renderers';
-
-  echarts.use([GridComponent, BarChart, CanvasRenderer, TitleComponent, LegendComponent,]);
+  //  步骤1：引入echarts.js文件
+  import * as echarts from 'echarts'
 
   export default {
-    name: "bar1",
+    name: "bar_1",
     data() {
       return {
-        id: 'bar_canvas',
+        id: 'bar_1',
         myChart: null,
-        resizeTimer: null
       }
     },
     methods: {
       myChart_render() {
-        this.myChart = echarts.init(document.getElementById(this.id));
-        var xDataArr = ['张三', '李四', '王五', '闰土', '小明', '茅台', '二妞', '大强']
-        var yDataArr = [88, 92, 63, 77, 94, 80, 72, 86]
-        var option = {
+        // 步骤3：初始化echarts实例对象
+        // 参数, dom,决定图表最终呈现的位置
+        this.myChart = echarts.init(document.getElementById(this.id))
+        // 步骤4：准备配置项
+        let xDataArr = ['张三', '李四', '王五', '闰土', '小明', '茅台', '二妞', '大强']
+        let yDataArr = [88, 92, 63, 77, 94, 80, 72, 86]
+        let option = {
           title: { // 标题设置
             text: '成绩展示', // 标题文字
             textStyle: { // 标题文字样式设置
@@ -45,7 +40,7 @@
             trigger: 'axis',
             triggerOn: 'click', // 触发时机, click代表点击, mouseOver代表鼠标移过
             // formatter: '{b} 的成绩是 {c}'
-            formatter: function(arg){ // 文字格式化
+            formatter: function (arg) { // 文字格式化
               return arg[0].name + '的分数是:' + arg[0].data
             }
           },
@@ -64,7 +59,7 @@
             }
           ]
         }
-        option && this.myChart.setOption(option);
+        option && this.myChart.setOption(option)
         window.addEventListener('resize', () => {
           this.myChart.resize()
         })

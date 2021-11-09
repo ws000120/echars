@@ -15,48 +15,29 @@
           <div class="grid-content bg-purple-light"></div>
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="4">
-          <div class="grid-content bg-purple"></div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple-light"></div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple"></div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple-light"></div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple"></div>
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content bg-purple-light"></div>
-        </el-col>
-      </el-row>
     </el-header>
     <el-main class="layout-content">
       <el-row type="flex" class="row-bg">
         <el-col :span="6">
           <div class="grid-content">
-            <bar></bar>
+            <bar style="width: 100%;height: 100%"></bar>
           </div>
           <div class="grid-content">
-
+            <Pie style="width: 100%;height: 100%"></Pie>
           </div>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content"></div>
-          <div class="grid-content"></div>
+          <div class="grid-content">
+            <bar1 style="width: 100%;height: 100%"></bar1>
+          </div>
+          <div class="grid-content">
+            <pie2 style="width: 100%;height: 100%"></pie2>
+          </div>
         </el-col>
-        <el-col :span="6">
-          <div class="grid-content"></div>
-          <div class="grid-content"></div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content"></div>
-          <div class="grid-content"></div>
+        <el-col :span="12">
+          <div style="height: 100%;width: 100%">
+            <bar2 style="width: 100%;height: 100%"></bar2>
+          </div>
         </el-col>
       </el-row>
     </el-main>
@@ -65,10 +46,14 @@
 
 <script>
   import Bar from '@/components/bar'
+  import Bar1 from '@/components/bar/bar_1'
+  import Bar2 from '@/components/bar/bar_2'
+  import Pie from '@/components/pie'
+  import Pie2 from '@/components/pie/pie2'
 
   export default {
     name: "Layout",
-    components: {Bar},
+    components: {Bar, Bar1, Bar2, Pie, Pie2,},
     data() {
       return {}
     },
@@ -85,7 +70,7 @@
       }
     },
     mounted() {
-      this.bg_color()
+      // this.bg_color()
     },
   }
 </script>
@@ -95,8 +80,10 @@
     height: inherit;
 
     /deep/ .el-header {
+      overflow: auto;
+
       .el-row {
-        height: 50%;
+        height: 100%;
         width: 100%;
 
         .el-col {
@@ -115,7 +102,6 @@
 
       .row-bg {
         height: 100%;
-        overflow: auto;
 
         .grid-content {
           height: 50%;
