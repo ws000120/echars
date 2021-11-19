@@ -1,6 +1,6 @@
 <template>
   <!-- 步骤2：准备一个呈现图表的盒子 -->
-  <div :id="id"></div>
+  <div :id="id" style="width: 100%;height: 100%"></div>
 </template>
 
 <script>
@@ -62,7 +62,7 @@
         option && this.myChart.setOption(option)
         window.addEventListener('resize', () => {
           this.myChart.resize()
-        })
+        }, )
       }
     },
     mounted() {
