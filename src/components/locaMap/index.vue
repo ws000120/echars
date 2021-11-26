@@ -19,6 +19,7 @@
         AMap: null,
         map: null,
         layer: null,
+        linklayer: null
       }
     },
     methods: {
@@ -44,6 +45,7 @@
           });
         });
         this.layer_point_circle()
+        this.link_layer()
 
       },
       layer_point_circle() {
@@ -71,7 +73,6 @@
           var rawData = ev.rawData;
           // 原始鼠标事件
           var originalEvent = ev.originalEvent;
-          console.log(rawData)
           openInfoWin(this.AMap, originalEvent, {
             '名称': rawData.name,
             '位置': rawData.lnglat
@@ -127,6 +128,42 @@
           }
         })
         this.layer.render();
+      },
+      link_layer() {
+        if (this.linklayer)
+          return
+        this.linklayer = Loca.visualLayer({
+          container: this.map,
+          type: 'line',
+          shape: 'line',
+          fitView: true,
+          eventSupport: true
+        });
+        let data = [
+          {
+            name: '线条 A',
+            path: [[116.407394, 39.904211], [117.200983, 39.084158]]
+          },
+        ]
+        // 添加数据
+        this.linklayer.setData(data, {
+          // 指定地理坐标所在列名
+          lnglat: 'path',
+          // 指定数据类型，支持 json、csv、tsv 格式
+          type: 'json'
+        });
+
+        // 设置样式
+        this.linklayer.setOptions({
+          style: {
+            // 3D 类型下线段不支持设置宽度。
+            color: 'blue',
+            opacity: 0.8
+          }
+        });
+
+        // 执行绘制
+        this.linklayer.render();
       },
     },
     mounted() {
