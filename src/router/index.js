@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "@/App";
 import echartsDemo from "@/router/echarts-demo";
+import GDMap from "@/router/GDMap";
+import locaMap from "@/router/locaMap";
 
 Vue.use(VueRouter)
 let routes = [
@@ -21,7 +23,9 @@ let routes = [
     },
     redirect: '/bar/bar1',
     children: [
-      ...echartsDemo
+      ...echartsDemo,
+      ...GDMap,
+      ...locaMap
     ],
   },
 ]

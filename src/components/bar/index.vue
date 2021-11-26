@@ -11,8 +11,9 @@
   import {GridComponent} from 'echarts/components';
   import {BarChart} from 'echarts/charts';
   import {CanvasRenderer} from 'echarts/renderers';
+  import {TooltipComponent} from 'echarts/components';
 
-  echarts.use([GridComponent, BarChart, CanvasRenderer, TitleComponent, LegendComponent,]);
+  echarts.use([GridComponent,TooltipComponent, BarChart, CanvasRenderer, TitleComponent, LegendComponent,]);
 
   export default {
     name: "bar1",
@@ -45,7 +46,7 @@
             trigger: 'axis',
             triggerOn: 'click', // 触发时机, click代表点击, mouseOver代表鼠标移过
             // formatter: '{b} 的成绩是 {c}'
-            formatter: function(arg){ // 文字格式化
+            formatter: function (arg) { // 文字格式化
               return arg[0].name + '的分数是:' + arg[0].data
             }
           },
