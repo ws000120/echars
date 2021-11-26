@@ -6,13 +6,13 @@
 
 <script>
   import * as echarts from 'echarts/core';
-  import {ToolboxComponent, LegendComponent} from 'echarts/components';
+  import {ToolboxComponent,TooltipComponent, LegendComponent} from 'echarts/components';
   import {PieChart} from 'echarts/charts';
   import {LabelLayout} from 'echarts/features';
   import {CanvasRenderer} from 'echarts/renderers';
-
   echarts.use([
     ToolboxComponent,
+    TooltipComponent,
     LegendComponent,
     PieChart,
     CanvasRenderer,

@@ -6,7 +6,6 @@
 <script>
   //  步骤1：引入echarts.js文件
   import * as echarts from 'echarts'
-
   export default {
     name: "bar_1",
     data() {

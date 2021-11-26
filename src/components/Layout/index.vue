@@ -46,19 +46,3 @@
     },
   }
 </script>
-
-<style lang='less' scoped>
-  #layout-container {
-    height: inherit;
-
-    /deep/ .el-header {
-
-    }
-
-    .layout-content {
-      height: 100%;
-
-    }
-
-  }
-</style>
