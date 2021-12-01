@@ -1,12 +1,21 @@
 <template>
   <div>
-    {{ $route.params }}
+    {{ name }}
+    {{ age }}
+    {{ phone }}
+    {{ address }}
   </div>
 </template>
 
 <script>
   export default {
     name: "detail",
+    props: [
+      'name',
+      'age',
+      'phone',
+      'address',
+    ],
     data() {
       return {}
     },

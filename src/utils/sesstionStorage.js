@@ -8,5 +8,6 @@ export const setSesstion = (key, value) => {
 }
 
 export const getSesstion = (key) => {
+  console.log(JSON.parse(unescape(sessionStorage.getItem(key))))
   return JSON.parse(unescape(sessionStorage.getItem(key))) || false
 }

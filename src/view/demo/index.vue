@@ -38,15 +38,15 @@
     },
     methods: {
       onSubmit() {
-        setSesstion('userInfo', JSON.stringify(this.form).toString())
+        setSesstion('userInfo', this.form)
         this.$store.commit('setUserInfo', this.form)
         this.$router.push({
           name: 'detail',
           params: {
             name: this.form.name,
-            age: this.form.age,
             phone: this.form.phone,
-            address: this.form.address
+            address: this.form.address,
+            age: this.form.age,
           },
         })
         // console.log(typeof this.$router.push())
