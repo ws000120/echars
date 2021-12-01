@@ -4,6 +4,8 @@ import App from "@/App";
 import echartsDemo from "@/router/echarts-demo";
 import GDMap from "@/router/GDMap";
 import locaMap from "@/router/locaMap";
+import el from "element-ui/src/locale/lang/el";
+import * as path from "path";
 
 Vue.use(VueRouter)
 let routes = [
@@ -44,6 +46,24 @@ let routes = [
           icon: '',
           description: '',
           isHideMenu: true
+        },
+        props(route) {
+          return {
+            name: route.params.name,
+            age: route.params.age,
+            phone: route.params.phone,
+            address: route.params.address,
+          }
+        },
+        //路由独享守卫
+        beforeEnter(to, from, next) {
+          if (Object.keys(to.params).length) {
+            next()
+          } else {
+            next({
+              name: "demo"
+            })
+          }
         },
         component: () => import('@/view/demo/detail'),
       },
