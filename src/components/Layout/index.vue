@@ -38,7 +38,11 @@
       }
     },
     created() {
-      const obj = this.$router.options.routes[0];
+      let obj = this.$router.options.routes[0];
+      let children = obj.children.filter(item => {
+        return !item.meta.isHideMenu
+      })
+      obj.children = children
       this.routes = obj;
     },
     methods: {},

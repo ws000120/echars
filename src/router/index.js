@@ -25,7 +25,28 @@ let routes = [
     children: [
       ...echartsDemo,
       ...GDMap,
-      ...locaMap
+      ...locaMap,
+      {
+        path: '/demo',
+        name: 'demo',
+        meta: {
+          title: 'Vuex状态管理',
+          icon: '',
+          description: '',
+        },
+        component: () => import('@/view/demo'),
+      },
+      {
+        path: '/detail',
+        name: 'detail',
+        meta: {
+          title: '详情',
+          icon: '',
+          description: '',
+          isHideMenu: true
+        },
+        component: () => import('@/view/demo/detail'),
+      },
     ],
   },
 ]

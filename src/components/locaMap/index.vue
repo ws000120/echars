@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import citys from "@/utility/citys";
+  import citys from "@/utils/citys";
   import {openInfoWin, closeInfoWin} from "@/components/locaMap/infoWindow";
 
   export default {
