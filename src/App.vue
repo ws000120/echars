@@ -11,7 +11,7 @@
     name: 'App',
     components: {
       Layout
-    }
+    },
   }
 </script>
 
