@@ -18,14 +18,19 @@
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>
+    <pageDemo @current-change="handlePage"></pageDemo>
   </div>
 </template>
 
 <script>
   import {setSesstion} from "@/utils/sesstionStorage";
+  import pageDemo from "./pageDemo";
 
   export default {
     name: "demo",
+    components: {
+      pageDemo
+    },
     data() {
       return {
         form: {
@@ -37,6 +42,10 @@
       }
     },
     methods: {
+      handlePage(c,event) {
+        alert(c)
+        console.log(event)
+      },
       onSubmit() {
         setSesstion('userInfo', this.form)
         this.$store.commit('setUserInfo', this.form)
@@ -49,7 +58,6 @@
             age: this.form.age,
           },
         })
-        // console.log(typeof this.$router.push())
       },
     },
     mounted() {

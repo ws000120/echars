@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const cesiumSource = 'node_modules/cesium/Source';
+const path = require('path');
 module.exports = {
   devServer: {
     hot: true,//自动保存
@@ -18,5 +20,6 @@ module.exports = {
           args[0].title = '数据可视化'
           return args
         })
+    config.module.set('unknownContextCritical',false)
   }
 }

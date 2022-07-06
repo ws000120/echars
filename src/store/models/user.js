@@ -6,7 +6,6 @@ const user = {
   },
   mutations: {
     setUserInfo(state, userInfo) {
-      console.log(userInfo)
       state.userInfo = userInfo
     },
   },

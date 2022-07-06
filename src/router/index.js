@@ -1,11 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import App from "@/App";
 import echartsDemo from "@/router/echarts-demo";
 import GDMap from "@/router/GDMap";
 import locaMap from "@/router/locaMap";
-import el from "element-ui/src/locale/lang/el";
-import * as path from "path";
 
 Vue.use(VueRouter)
 let routes = [
@@ -39,6 +36,16 @@ let routes = [
         component: () => import('@/view/demo'),
       },
       {
+        path: '/tableDemo',
+        name: 'tableDemo',
+        meta: {
+          title: '二次封装表格',
+          icon: '',
+          description: '',
+        },
+        component: () => import('@/view/tableDemo'),
+      },
+      {
         path: '/detail',
         name: 'detail',
         meta: {
@@ -66,6 +73,26 @@ let routes = [
           }
         },
         component: () => import('@/view/demo/detail'),
+      },
+      {
+        path: '/cesiumDemo',
+        name: 'cesiumDemo',
+        meta: {
+          title: 'Cesium Demo',
+          icon: '',
+          description: '',
+        },
+        component: () => import('@/view/cesiumDemo'),
+      },
+      {
+        path: '/selectDemo',
+        name: 'selectDemo',
+        meta: {
+          title: '测试选择框',
+          icon: '',
+          description: '',
+        },
+        component: () => import('@/view/selectDemo'),
       },
     ],
   },
